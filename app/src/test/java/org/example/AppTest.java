@@ -4,11 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
-
     @Test
     void calculatesBasedOnPercentage() {
         App classUnderTest = new App();
@@ -21,5 +16,12 @@ class AppTest {
         App classUnderTest = new App();
         Double result = classUnderTest.totalWithTip(150.0, 15);
         assertEquals(150.0 + 22.5, result);
+    }
+
+    @Test
+    void roundsToWholeCents() {
+        App classUnderTest = new App();
+        Double result = classUnderTest.totalWithTip(1443.76, 8);
+        assertEquals(1559.26, result);
     }
 }

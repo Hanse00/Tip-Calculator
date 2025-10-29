@@ -1,16 +1,26 @@
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World";
-    }
+import java.util.Scanner;
 
+public class App {
     public Double totalWithTip(Double totalBeforeTip, int tipPercentage) {
         double totalCost = totalBeforeTip + (totalBeforeTip*tipPercentage/100);
-        return totalCost;
+
+        double totalCents = totalCost * 100;
+        totalCents = Math.round(totalCents);
+        return totalCents / 100;
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please input before tip amount : ");
+        double totalBeforeTip = in.nextDouble();
+
+        System.out.println("Please input tip percentage : ");
+        int tipPercentage = in.nextInt();
+
+        App app = new App();
+        Double result = app.totalWithTip(totalBeforeTip, tipPercentage);
+        System.out.println(result);
     }
 }
