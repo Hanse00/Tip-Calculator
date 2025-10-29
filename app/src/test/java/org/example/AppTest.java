@@ -24,4 +24,12 @@ class AppTest {
         Double result = classUnderTest.totalWithTip(1443.76, 8);
         assertEquals(1559.26, result);
     }
+
+    @Test
+    void negativeTotalThrows() {
+        App classUnderTest = new App();
+        assertThrows(IllegalArgumentException.class, () -> {
+            classUnderTest.totalWithTip(-100.0, 0);
+        });
+    }
 }

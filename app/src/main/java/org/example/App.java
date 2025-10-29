@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class App {
     public Double totalWithTip(Double totalBeforeTip, int tipPercentage) {
+        if (totalBeforeTip < 0.0) {
+            throw new IllegalArgumentException("Total cannot be negative");
+        }
         double totalCost = totalBeforeTip + (totalBeforeTip*tipPercentage/100);
 
         double totalCents = totalCost * 100;
